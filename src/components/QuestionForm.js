@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function QuestionForm({ onAddQuestion }) {
   const [formData, setFormData] = useState({
@@ -50,6 +50,12 @@ function QuestionForm({ onAddQuestion }) {
         });
       });
   }
+
+  useEffect(() => {
+    return () => {
+      // Cleanup function to prevent state updates on unmounted component
+    };
+  }, []);
 
   return (
     <section>
